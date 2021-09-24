@@ -1,0 +1,11 @@
+language javasript
+
+major problem:
+1.require does not work? cant read json through content.json
+"uncaught rerence error, require is not defined
+2. try to solve json problem using jquery but unable to due to time constraint
+
+could improve:
+1. not make it case specific
+2. partition pages for different questions
+3. user log in specify 

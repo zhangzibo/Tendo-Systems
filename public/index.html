@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- <script type='text/javascript' src="./public/content.js" /></script> -->
+  <script type="text/javascript" src="data.json"></script>
+<script>
+function firstname() {
+  var string1 = JSON.stringify(data);
+  var parsed = JSON.parse(string1);  
+  return parsed["entry"][0]["resource"]["name"][0]["given"][0]
+}
+function doctorlastame(){
+  var string1 = JSON.stringify(data);
+  var parsed = JSON.parse(string1);  
+  return parsed["entry"][1]["resource"]["name"][0]["family"]
+}
+function diagnosis(){
+  var string1 = JSON.stringify(data);
+  var parsed = JSON.parse(string1);
+  return parsed["entry"][3]["resource"]["code"]["coding"][0]["name"]
+}
+function question1() {
+var first_name = firstname()
+var dioctor_last_name = doctorlastame()
+var a = prompt(" Hi " + first_name+", on a scale of 1-10, would you recommend Dr "+ dioctor_last_name+" to a friend or family member? 1 = Would not recommend, 10 = Would strongly recommend");
+  if (a != null) {
+  document.getElementById("q1").innerHTML = "Thank you, you answered "+a ;
+}}
+
+function question2() {
+var diagnosed = diagnosis()
+var dioctor_last_name = doctorlastame()
+var a = prompt("Thank you. You were diagnosed with "+ diagnosed+". Did Dr "+dioctor_last_name+" explain how to manage this diagnosis in a way you could understand?");
+  if (a != null) {
+  document.getElementById("q2").innerHTML = "Thank you, you answered "+a ;
+}}
+
+function question3() {
+  var diagnosed = diagnosis()
+var a = prompt("We appreciate the feedback, one last question: how do you feel about being diagnosed with "+diagnosed+"?");
+  if (a != null) {
+  document.getElementById("q3").innerHTML = "Thank you, you answered "+a ;
+}}
+
+
+
+</script>
+</head>
+
+<body style = "text-align: center; " >
+<h1 style = "color: pink;">
+Tendo questionare
+</h1>
+
+<button onclick = "question1()" style = "color: pink;">
+question 1
+</button>
+<p id = "q1"></p>
+
+<button onclick = "question2()" style = "color: pink;">
+question 2
+</button>
+<p id = "q2"></p>
+
+<button onclick = "question3()" style = "color: pink;">
+question 3
+</button>
+<p id = "q3"></p>
+
+
+
+</body>
+
+</html>
